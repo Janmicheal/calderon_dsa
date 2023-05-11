@@ -11,14 +11,12 @@ public class Main {
     
     private Node head;
     
-    // Add a block to the top of the peg
     private void push(int value) {
         Node newNode = new Node(value);
         newNode.next = head;
         head = newNode;
     }
     
-    // Remove and return the top block from the peg
     private int pop() {
         if (head == null) {
             throw new IllegalStateException("Peg is empty.");
@@ -28,7 +26,6 @@ public class Main {
         return value;
     }
     
-    // Move a block from this peg to another peg
     private void moveBlockTo(int block, Main toPeg) {
         int value = pop();
         if (value != block) {
@@ -38,7 +35,6 @@ public class Main {
         System.out.println("Move block " + block + " from peg " + this + " to peg " + toPeg);
     }
     
-    // Solve the Tower of Hanoi problem for the given number of blocks
     public static void solve(int numBlocks) {
         Main peg1 = new Main();
         Main peg2 = new Main();
@@ -49,7 +45,6 @@ public class Main {
         moveBlocks(numBlocks, peg1, peg3, peg2);
     }
     
-    // Move the given number of blocks from one peg to another using an intermediate peg
     private static void moveBlocks(int numBlocks, Main fromPeg, Main toPeg, Main intermediatePeg) {
         if (numBlocks == 1) {
             fromPeg.moveBlockTo(1, toPeg);
@@ -60,12 +55,10 @@ public class Main {
         }
     }
     
-    // Print the blocks on this peg
     public String toString() {
         return Integer.toString(System.identityHashCode(this));
     }
     
-    // Test the Tower of Hanoi solver
     public static void main(String[] args) {
         int numBlocks = 3;
         solve(numBlocks);
