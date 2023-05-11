@@ -1,0 +1,18 @@
+public class Main {
+    
+    public static void main(String[] args) {
+        int numBlocks = 3;
+        solve(numBlocks, "A", "B", "C");
+    }
+    
+    public static void solve(int numBlocks, String from, String to, String aux) {
+        if (numBlocks == 1) {
+            System.out.println("Move block 1 from " + from + " to " + to);
+            return;
+        }
+        
+        solve(numBlocks - 1, from, aux, to);
+        System.out.println("Move block " + numBlocks + " from " + from + " to " + to);
+        solve(numBlocks - 1, aux, to, from);
+    }
+}
