@@ -61,6 +61,6 @@ class Graph {
                 System.out.print(" - ");
             }
         }
-        System.out.println(g.edge[5].dest);
+        System.out.println(g.edge[4].dest);
     }
 }
